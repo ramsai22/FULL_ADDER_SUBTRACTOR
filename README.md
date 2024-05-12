@@ -38,64 +38,49 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
+### Full Adder
+
+![image](https://github.com/saiganesh2006/FULL_ADDER_SUBTRACTOR/assets/145742342/32675021-f935-4a0b-b4d5-88a3d7dcbb1f)
+
+### Full Subtractor
+
+![image](https://github.com/saiganesh2006/FULL_ADDER_SUBTRACTOR/assets/145742342/dbbf663b-d739-4d77-a0b3-1feeb67812bf)
+
 **Procedure**
 
+1.Type the program in Quartus software.
+
+2.Compile and run the program.
+
+3.Generate the RTL schematic and save the logic diagram.
+
+4.Create nodes for inputs and outputs to generate the timing diagram.
+
+5.For different input combinations generate the timing diagram.
 Write the detailed procedure here
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-
+ Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
 ### Developed by: paida ram sai
-
 ### RegisterNumber: 212223110034
-*/
-
-**FULL_ADDER**
 ```
-module full_adder(a,b,cin,sum,carry);
-input a,b,cin;
-output sum,carry;
-wire w1,w2,w3,w4;       
-xor(w1,a,b);
-xor(sum,w1,cin);        
-
-and(w2,a,b);
-and(w3,b,cin);
-and(w4,cin,a);
-
-or(carry,w2,w3,w4);
+module Full_Adder_Subtractor(a,b,c,sum,carry,D,Bo);
+input a,b,c;
+output sum,carry,D,Bo;
+assign sum=a^b^c;
+assign carry=(a&b)|(b&c) | (a&c);
+assign D=a^b^c;
+assign Bo=(~a&b) | (b&c) | (~a&c);
 endmodule
 ```
-
-**FULL_SUBTRACTER**
-```
-module full_subtracter(a,b,Bin,BO,DIFF);
-input a,b,Bin;
-output BO,DIFF;
-assign DIFF = a ^ b ^ Bin;
-  assign BO = (a & b) | ((a ^ b) & Bin);
-endmodule
-```
-
 **RTL Schematic**
 
-**Full_adder**
-
-<img width="781" alt="full_adder circuit dia" src="https://github.com/Ganesh23013987/FULL_ADDER_SUBTRACTOR/assets/147473768/5371de9d-9d9d-4c53-943c-18efc64b94fc">
-
-**Full_subtracter**
-
-<img width="838" alt="full_subtracter circuit dia" src="https://github.com/Ganesh23013987/FULL_ADDER_SUBTRACTOR/assets/147473768/6d6be52a-5b94-4543-b328-61f9e54a7066">
-
+![image](https://github.com/saiganesh2006/FULL_ADDER_SUBTRACTOR/assets/145742342/b0f47c65-eff7-4558-9633-26af1fd2957f)
 
 **Output Timing Waveform**
 
-**Full_adder**
-![full_adder](https://github.com/Ganesh23013987/FULL_ADDER_SUBTRACTOR/assets/147473768/bdf5de18-56e3-4b73-ab12-54b2b3f15a2a)
-
-**Full_subtracter**
-![full_subtracter](https://github.com/Ganesh23013987/FULL_ADDER_SUBTRACTOR/assets/147473768/8985020f-0871-4143-84a2-b143a03f37aa)
+![image](https://github.com/saiganesh2006/FULL_ADDER_SUBTRACTOR/assets/145742342/543bcd05-4a21-4cda-b9e5-63ff5d976bb5)
 
 **Result:**
 
